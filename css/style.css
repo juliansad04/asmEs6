@@ -1,0 +1,404 @@
+.fontStyle2 {
+    font-family: 'Manrope', sans-serif;
+}
+
+.fontStyle1 {
+    font-family: 'Anton', sans-serif;
+}
+
+.compact {
+    line-height: 1.5em
+}
+
+a.customNav {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+    border-right: 1px solid #e55c69;
+    padding: 14px 18px;
+}
+
+a.active,
+a.customNav:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: transparent
+}
+
+@media screen and (min-width:797px) {
+    #bottomNavbar.collapse {
+        display: block
+    }
+}
+
+@media screen and (max-width:796px) {
+    #bottomNavbar {
+        padding: 14px;
+    }
+
+    #bottomNavbar a.customNav {
+        display: block !important;
+        border: none;
+        background: rgba(0, 0, 0, 0.2);
+        margin-top: 4px;
+        margin-bottom: 4px;
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    #removeFlex {
+        display: block !important;
+        text-align: center
+    }
+}
+
+
+
+/* slider */
+
+.banner {
+    height: 100vh;
+    background-image: url("../images/banner.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 50px;
+}
+.banner__left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+}
+.banner__left img {
+    width: 85%;
+}
+.banner__left__desc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.banner__left__desc a {
+    padding: 15px 30px;
+    background-color: #de230e;
+    color: #fff;
+    text-decoration: none;
+}
+.banner__left__desc__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+    transform: translateY(-50%);
+}
+.banner__left__desc__content h3 {
+    font-size: 30px;
+    color: #000;
+    font-weight: 700;
+}
+.banner__left__desc__content p {
+    font-size: 18px;
+    color: grey;
+    line-height: 1.5;
+}
+.banner__right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.banner__right img {
+    width: 80%;
+    object-fit: cover;
+}
+.banner__left__pick-color {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    top: 30%;
+    transform: translateY(-50%);
+    gap: 10px;
+}
+.banner__left__pick-color__item {
+    width: 20px;
+    height: 20px;
+    background-color: #de230e;
+    border-radius: 50%;
+}
+.banner__left__pick-color__item:nth-of-type(1) {
+    background-color: #000;
+}
+
+/* product */
+.product-details {
+    position: relative;
+    width: 200px; /* Độ rộng của sản phẩm */
+    border: 1px solid black;
+}
+
+.product-img {
+    position: relative;
+}
+
+
+.product-cart {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #de230e; /* Màu nền của nút "Thêm vào giỏ" */
+    text-align: center;
+    padding: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-details:hover .product-cart {
+    opacity: 1;
+}
+
+.product-cart button {
+    width: 100%;
+    height: 10px;
+    padding: 2px 0;
+    background-color: #de230e; /* Màu nền nút "Thêm vào giỏ" */
+    color: #fff; /* Màu chữ nút "Thêm vào giỏ" */
+    border: none;
+    cursor: pointer;
+}
+
+.product-cart button:hover {
+    background-color:#de230e; /* Màu nền khi hover nút "Thêm vào giỏ" */
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product-info a {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333; /* Màu chữ mới */
+    text-decoration: none;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.price span {
+    font-size: 18px; /* Kích thước chữ mới */
+    color: #333; /* Màu chữ mới */
+}
+
+.red {
+    color: red; /* Màu chữ mới cho class "red" */
+}
+
+.line-through {
+    text-decoration: line-through;
+    margin-right: 5px; /* Khoảng cách giữa giá và nút */
+}
+
+/* box left product */
+.category-filter {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+h4 {
+    margin-bottom: 15px;
+    font-size: 18px; /* Kích thước chữ */
+}
+
+select, input {
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 16px; /* Kích thước chữ */
+}
+
+.price-checkbox {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px; /* Kích thước chữ */
+}
+
+.title_product {
+    font-size: 24px; /* Kích thước chữ */
+    font-weight: bold; /* Độ đậm của chữ */
+    text-align: center; /* Căn giữa văn bản */
+    color: #333; /* Màu chữ */
+    text-transform: uppercase; /* Chuyển đổi chữ thành chữ in hoa */
+    margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+}
+
+/* giohang */
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+
+
+
+/*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+.contact .info {
+    width: 100%;
+    background: #fff;
+}
+
+.contact .info i {
+    font-size: 20px;
+    color: #1977cc;
+    float: left;
+    width: 44px;
+    height: 44px;
+    background: #d6e9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact .info h4 {
+    padding: 0 0 0 60px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #2c4964;
+}
+
+.contact .info p {
+    padding: 0 0 0 60px;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #4b7dab;
+}
+
+.contact .info .email,
+.contact .info .phone {
+    margin-top: 40px;
+}
+
+.contact .info .email:hover i,
+.contact .info .address:hover i,
+.contact .info .phone:hover i {
+    background: #1977cc;
+    color: #fff;
+}
+
+.contact .php-email-form {
+    width: 100%;
+    background: #fff;
+}
+
+.contact .php-email-form .form-group {
+    padding-bottom: 8px;
+}
+
+.contact .php-email-form .error-message {
+    display: none;
+    color: #fff;
+    background: #ed3c0d;
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+}
+
+.contact .php-email-form .error-message br+br {
+    margin-top: 25px;
+}
+
+.contact .php-email-form .sent-message {
+    display: none;
+    color: #fff;
+    background: #18d26e;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+}
+
+.contact .php-email-form .loading {
+    display: none;
+    background: #fff;
+    text-align: center;
+    padding: 15px;
+}
+
+.contact .php-email-form .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px -6px 0;
+    border: 3px solid #18d26e;
+    border-top-color: #eee;
+    animation: animate-loading 1s linear infinite;
+}
+
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+}
+
+.contact .php-email-form input {
+    height: 44px;
+}
+
+.contact .php-email-form textarea {
+    padding: 10px 12px;
+}
+
+.contact .php-email-form button[type=submit] {
+    background: #1977cc;
+    border: 0;
+    padding: 10px 35px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+    background: #1c84e3;
+}
+
+@keyframes animate-loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.section-title h2 {
+    font-size: 2.5em; /* Đặt kích thước font chữ */
+    color: #333; /* Màu chữ */
+    font-weight: bold; /* Đặt độ đậm của font */
+    margin-bottom: 15px; /* Khoảng cách dưới */
+}
+
+.section-title p {
+    font-size: 1.2em; /* Đặt kích thước font chữ */
+    color: #555; /* Màu chữ */
+    line-height: 1.5; /* Đặt độ dài dòng */
+}
+
+/* end contact */
