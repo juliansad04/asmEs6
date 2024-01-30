@@ -138,6 +138,7 @@ a.customNav:hover {
   border: 1px solid black;
 }
 
+
 .product-img {
   position: relative;
 }
@@ -402,3 +403,32 @@ input {
 }
 
 /* end contact */
+
+/* cart */
+.thanhtoan{
+  display: flex;
+
+
+}
+.khinhanhang{
+  background-color: #de230e;
+  padding: 10px 20px;
+}
+.khinhanhang a{
+  color: white;
+  text-decoration: none;
+}
+
+.online{
+  background-color: #de230e;
+  padding: 10px 20px;
+}
+.online a{
+  color: white;
+  text-decoration: none;
+}
+
+.thanhtoan .khinhanhang,
+.thanhtoan .online {
+  margin-right: 10px; /* Khoảng cách giữa hai span */
+}
