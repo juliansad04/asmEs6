@@ -138,7 +138,6 @@ a.customNav:hover {
   border: 1px solid black;
 }
 
-
 .product-img {
   position: relative;
 }
@@ -405,25 +404,23 @@ input {
 /* end contact */
 
 /* cart */
-.thanhtoan{
+.thanhtoan {
   display: flex;
-
-
 }
-.khinhanhang{
+.khinhanhang {
   background-color: #de230e;
   padding: 10px 20px;
 }
-.khinhanhang a{
+.khinhanhang a {
   color: white;
   text-decoration: none;
 }
 
-.online{
+.online {
   background-color: #de230e;
   padding: 10px 20px;
 }
-.online a{
+.online a {
   color: white;
   text-decoration: none;
 }
@@ -431,4 +428,11 @@ input {
 .thanhtoan .khinhanhang,
 .thanhtoan .online {
   margin-right: 10px; /* Khoảng cách giữa hai span */
+}
+
+.page-item.active a {
+  background-color: #fff !important;
+  color: red !important;
+  font-weight: bold;
+  border-color: #ddd;
 }

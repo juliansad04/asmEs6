@@ -1,0 +1,123 @@
+{
+  "users": [   
+    {
+      "id": 1,
+      "username": "thanhpnc",
+      "email": "thanhnppc@fpt.edu.vn",
+      "password": "thanh456",
+      "role": "0"
+    },
+    {
+      "id": 2,
+      "username": "thanhabc",
+      "email": "thynppc@gmail.com.vn",
+      "password": "thanhxyz..",
+      "role": "1"
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Sách kinh tế"
+    },
+    {
+      "id": 2,
+      "name": "Sách văn học"
+    },
+    {
+      "id": 3,
+      "name": "Sách ngoại ngữ"
+    }
+  ],
+  "order_detail": [
+    {
+      "order_id": 1,
+      "product_id": 1,
+      "quantity": 2,
+      "unit_price": 99000
+    },
+    {
+      "order_id": 1,
+      "product_id": 3,
+      "quantity": 1,
+      "unit_price": 210000
+    }
+  ],
+  "orders": [
+    {
+      "customer_address": "123 Đường ABC, Quận XYZ, Thành phố HCM",
+      "customer_email": "nguyenvana@example.com",
+      "customer_name": "Nguyễn Văn A",
+      "customer_phone": "0901234567",
+      "id": 1,
+      "order_date": "2024-01-13",
+      "status": "Đang xử lý"
+    }
+  ],
+  "products": [
+    {
+      "cate_id": 1,
+      "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+      "id": 1,
+      "image": "hinh1.jpg",
+      "name": "Sơn trà nở muộn",
+      "price": 99000
+    },
+    {
+      "cate_id": 1,
+      "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+      "id": 2,
+      "image": "hinh2.jpg",
+      "name": "Trải lòng phiên dịch",
+      "price": 120000
+    },
+    {
+      "cate_id": 1,
+      "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+      "id": 3,
+      "image": "hinh3.jpg",
+      "name": "Tôi nghĩ tôi thích mỹ",
+      "price": 210000
+    },
+    {
+      "cate_id": 2,
+      "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+      "id": 4,
+      "image": "hinh4.jpg",
+      "name": "Làm việc nhóm",
+      "price": 45000
+    },
+    {
+      "cate_id": 2,
+      "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+      "id": 5,
+      "image": "hinh5.jpg",
+      "name": "Sm sự tập chung",
+      "price": 169000
+    },
+    {
+      "cate_id": 3,
+      "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      "id": 6,
+      "image": "hinh6.jpg",
+      "name": "Destination B2",
+      "price": 70000
+    },
+    {
+      "cate_id": 3,
+      "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+      "id": 7,
+      "image": "hinh7.jpg",
+      "name": "Mind Map English",
+      "price": 310000
+    },
+    {
+      "cate_id": 3,
+      "detail": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+      "id": 8,
+      "image": "hinh9.jpg",
+      "name": "Grammar in Use Book",
+      "price": 69000
+    }
+  ]
+}
