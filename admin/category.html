@@ -48,7 +48,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Bảng điều khiển</span></a>
             </li>
 
             <!-- Divider -->
@@ -57,26 +57,26 @@
             <li class="nav-item">
                 <a class="nav-link" href="account.html">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    <span>Account</span></a>
+                    <span>Tài khoản</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="category.html">
                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    <span>Category</span></a>
+                    <span>Danh mục</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="products.html">
                     <i class="fas fa-book fa-sm fa-fw mr-2 text-gray-400"></i>
-                    <span>Products</span></a>
+                    <span>Sản phẩm</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="orders.html">
                     <i class="fas fa-truck fa-sm fa-fw mr-2 text-gray-400"></i>
-                    <span>Orders</span></a>
+                    <span>Đơn hàng</span></a>
             </li>
 
             <!-- Divider -->
@@ -183,7 +183,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-2 text-gray-800">Category</h1>
+                        <h1 class="h3 mb-2 text-gray-800">Danh mục</h1>
                         <a href="add-category.html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-plus fa-sm text-white-50"></i> Thêm danh mục</a>
                     </div>
@@ -198,42 +198,15 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                            <th>Action</th>
+                                            <th>Mã danh mục</th>
+                                            <th>tên danh mục</th>
+                                            <th>Quyền</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td>
-                                                <button class="btn btn-warning btn-sm">
-                                                    <a href="edit-category.html"
-                                                        style="color: white; text-decoration: none;">Edit</a>
-                                                </button>
-                                                <button class="btn btn-danger btn-sm"
-                                                    onclick="deleteRow()">Delete</button>
-                                            </td>
+
+                                    <tbody class="list__cate">
+                                        <tr class="list__cate-tr">
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -299,12 +272,12 @@
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <!-- <script src="vendor/datatables/jquery.dataTables.min.js"></script> -->
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="./js/cate.js"></script>
 
 </body>
 

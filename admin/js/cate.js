@@ -25,7 +25,7 @@ initializeApp(firebaseConfig);
 const dbRef = ref(getDatabase());
 
 const categoryList = document.querySelector(".list__cate");
-console.log(categoryList);
+
 function listCategory() {
   categoryList.innerHTML = "";
   get(child(dbRef, "category"))

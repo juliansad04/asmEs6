@@ -33,25 +33,27 @@ function listProduct() {
       if (snapshot.exists()) {
         const products = snapshot.val();
         console.log(products);
-        products.forEach((product) => {
+        Object.values(products).forEach((product) => {
           const row = document.createElement("tr");
           row.classList.add("list__product-tr");
 
+          console.log(product);
+
           row.innerHTML = `
-          <td>${product.id}</td>
-          <td>${product.name}</td>
-          <td>${product.cate_id}</td>
-          <td>${product.detail}</td>
-          <td>${product.price}</td>
-          <td><img src="../images/vanhoc${product.id}.jpg" alt="..." width="100px" height="150px"></td>
-          <td>
-              <button class="btn btn-warning btn-sm">
-                  <a href="edit-product.html"
-                      style="color: white; text-decoration: none;">Chỉnh sửa</a>
-              </button>
-              <button class="btn btn-danger btn-sm"
-                  onclick="deleteRow()">Xóa</button>
-          </td>`;
+            <td>${product.id}</td>
+            <td>${product.name}</td>
+            <td>${product.cate_id}</td>
+            <td>${product.detail}</td>
+            <td>${product.price}</td>
+            <td><img src="${product.image}" alt="..." width="100px" height="150px"></td>
+            <td>
+                <button class="btn btn-warning btn-sm">
+            <a href="edit-product.html?id=${product.id}"
+                style="color: white; text-decoration: none;">Chỉnh sửa</a>
+               </button>
+                 <button class="btn btn-danger btn-sm"
+                    onclick="deleteRow('${product.id}')">Xóa</button>
+            </td>`;
 
           productList.appendChild(row);
         });
@@ -65,3 +67,22 @@ function listProduct() {
 }
 
 listProduct();
+
+window.deleteRow = function (productId) {
+  const isConfirmed = confirm("Bạn có chắc chắn muốn xóa sản phẩm này?");
+
+  if (isConfirmed) {
+    const productRef = child(dbRef, `products/${productId}`);
+
+    console.log(productRef);
+
+    remove(productRef)
+      .then(() => {
+        console.log("Product deleted successfully!");
+        listProduct();
+      })
+      .catch((error) => {
+        console.error("Error deleting product:", error);
+      });
+  }
+};

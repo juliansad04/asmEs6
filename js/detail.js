@@ -70,12 +70,22 @@ function getProductDetail() {
           div.classList = `wrapper row`;
           let htmls = `<div class="preview col-md-6">
                 <div class="preview-pic tab-content">
-                  <div class="tab-pane active" id="pic-1"><img src="images/vanhoc${productId}.jpg" alt="..." width="100%" height="700px"></div>
+                  <div class="tab-pane active" id="pic-1"><img src="${
+                    product_detail.image
+                  }.jpg" alt="..." width="100%" height="700px"></div>
                 </div>
             </div>
             <div class="details col-md-6">
                 <h3 class="product-title">${product_detail.name}</h3>
-                <!-- ... (các thông tin khác) ... -->
+                <p class="product-desc mb-2">${product_detail.detail}</p>
+                <p class="price" style="width: fit-content">
+          <span class="product_price">Giá: ${Number(
+            product_detail.price
+          ).toLocaleString("vi-VN", {
+            style: "currency",
+            currency: "VND",
+          })}</span>
+        </p>
                 <div class="action">
                     <button class="add-to-cart btn btn-default" type="button">Thêm vào giỏ</button>
                     <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
@@ -87,33 +97,39 @@ function getProductDetail() {
 
                       <!-- Thay đổi ở đây để sử dụng dữ liệu từ relatedProducts -->
                       ${relatedProducts
+                        .filter(
+                          (relatedProduct) => relatedProduct.id !== productId
+                        )
+                        .slice(0, 3)
                         .map((relatedProduct) => {
                           return `
-                            <div class="product-lienquan col-md-4">
-                              <div class="product-img">
-                                <div class="label-offer bg-red"></div>
-                                <a href="chitietsp.html?id=${
-                                  relatedProduct.id
-                                }"><img src="images/vanhoc${
-                            relatedProduct.id
-                          }.jpg" alt="..." width="" height="260px"></a>
-                                <div class="product-cart">
-                                  <button id="add-cart">Thêm vào giỏ</button>
-                                </div>
-                              </div>
-                              <div class="product-info">
-                                <a href="chitietsp.html?id=${
-                                  relatedProduct.id
-                                }">${relatedProduct.name}</a>
-                                <p class="price text-center m-0">
-                                  <span class="product_price">Giá: ${relatedProduct.price.toLocaleString(
-                                    "vi-VN",
-                                    { style: "currency", currency: "VND" }
-                                  )}</span>
-                                </p>
-                              </div>
-                            </div>
-                          `;
+              <div class="product-lienquan col-md-4">
+                <div class="product-img">
+                  <div class="label-offer bg-red"></div>
+                  <a href="chitietsp.html?id=${relatedProduct.id}">
+                    <img src="${
+                      relatedProduct.image
+                    }.jpg" alt="..." width="" height="260px">
+                  </a>
+                  <div class="product-cart">
+                    <button id="add-cart">Thêm vào giỏ</button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <a href="chitietsp.html?id=${relatedProduct.id}">${
+                            relatedProduct.name
+                          }</a>
+                  <p class="price text-center m-0">
+                    <span class="product_price">Giá: ${Number(
+                      relatedProduct.price
+                    ).toLocaleString("vi-VN", {
+                      style: "currency",
+                      currency: "VND",
+                    })}</span>
+                  </p>
+                </div>
+              </div>
+            `;
                         })
                         .join("")}
                       <!-- Kết thúc phần thay đổi -->

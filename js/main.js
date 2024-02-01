@@ -32,10 +32,12 @@ function updateProductList() {
   const productList = document.querySelector(".product__wrap");
   productList.innerHTML = "";
 
-  get(child(dbRef, "products"))
+  /* get(child(dbRef, "products"))
     .then((snapshot) => {
       if (snapshot.exists()) {
         const products = snapshot.val();
+
+        console.log(products);
 
         const startIndex = (page - 1) * productsPerPage;
         const endIndex = page * productsPerPage;
@@ -79,6 +81,62 @@ function updateProductList() {
         });
 
         renderPagination(products.length);
+      } else {
+        console.log("No data available");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    }); */
+  get(child(dbRef, "products"))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        const products = snapshot.val();
+
+        console.log(products);
+
+        const startIndex = (page - 1) * productsPerPage;
+        const endIndex = page * productsPerPage;
+
+        Object.values(products)
+          .slice(startIndex, endIndex)
+          .map((product) => {
+            const div = document.createElement("div");
+            div.classList = `col-11 col-sm-6 col-lg-6 col-xl-3 mt-5`;
+
+            let htmls = `<div class="product-details">
+            <div class="product-img">
+                <div class="label-offer bg-red"></div>
+                <a href="chitietsp.html?id=${product.id}"><img src="${
+              product.image
+            }" alt="..." width="100%" height="260px"></a>
+                <div class="product-cart">
+                    <button id="add-cart">Thêm vào giỏ</button>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <a href="#!">${product.name}</a>
+                <p class="price text-center m-0">
+                    <span class="product_price">Giá: ${product.price.toLocaleString(
+                      "vi-VN",
+                      { style: "currency", currency: "VND" }
+                    )}</span>
+                </p>
+            </div>
+          </div>`;
+
+            div.innerHTML = htmls;
+
+            const imgElement = div.querySelector("img");
+            imgElement.addEventListener("click", () => {
+              window.location.href = `chitietsp.html?id=${product.id}`;
+            });
+
+            productList.appendChild(div);
+          });
+
+        renderPagination(Object.values(products).length);
       } else {
         console.log("No data available");
       }

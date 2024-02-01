@@ -213,15 +213,14 @@
                                     <div class="form-group col-md-6">
                                         <label for="category">Category</label>
                                         <select class="form-control" id="category" name="category" required>
-                                            <option value="category1">Category 1</option>
-                                            <option value="category2">Category 2</option>
+
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description</label>
                                     <textarea class="form-control" id="description" name="description" rows="3"
-                                        required>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus fugit verodolore. Quaerat soluta reprehenderit sit in labore perspiciatis. Natus nobis pariatur incidunt atque officia dicta repellendus rem. Harum, aliquid?"</textarea>
+                                        required>"</textarea>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
@@ -310,24 +309,8 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 
+    <script type="module" src="./js/edit-product.js"></script>
     <script>
-        window.onload = function () {
-            previewImageDefault();
-        };
-
-        function previewImageDefault() {
-
-            var defaultImagePath = 'img/demo.jpg';
-
-            var preview = document.getElementById('imagePreview');
-            var label = document.querySelector('.custom-file-label');
-
-            preview.src = defaultImagePath;
-            preview.style.display = 'block';
-
-            label.innerHTML = defaultImagePath;
-        }
-
         function previewImage() {
             var input = document.getElementById('image');
             var preview = document.getElementById('imagePreview');

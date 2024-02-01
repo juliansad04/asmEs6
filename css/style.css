@@ -135,6 +135,7 @@ a.customNav:hover {
 .product-details {
   position: relative;
   width: 100%; /* Độ rộng của sản phẩm */
+  height: 100%;
   border: 1px solid black;
 }
 
