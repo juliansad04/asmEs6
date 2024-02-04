@@ -2,18 +2,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import {
     getDatabase,
     ref,
-    push,
     set,
     get,
     child,
+    push,
+    update,
+    remove,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-import {
-    getStorage,
-    ref as storageRef,
-    uploadBytes,
-    getDownloadURL,
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
-
 const firebaseConfig = {
     apiKey: "AIzaSyBPWp2ha8zD9ZnbOv7dSbSELGCe86iytAY",
     authDomain: "thanhnppcecma.firebaseapp.com",
@@ -23,7 +18,6 @@ const firebaseConfig = {
     storageBucket: "thanhnppcecma.appspot.com",
     messagingSenderId: "96233696774",
     appId: "1:96233696774:web:b47da30031cc6231269d87",
-    storageBucket: "thanhnppcecma.appspot.com",
 };
 
 initializeApp(firebaseConfig);
