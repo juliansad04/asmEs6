@@ -150,3 +150,54 @@ function getProductDetail() {
 }
 
 getProductDetail();
+
+/* ------------------------------------------- */
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", function (event) {
+    const target = event.target;
+
+    if (target.classList.contains("add-to-cart")) {
+      const productDetail = getProductDetailFromDOM();
+      addToCart(
+        productDetail.productId,
+        productDetail.name,
+        productDetail.price
+      );
+    }
+  });
+
+  function getProductDetailFromDOM() {
+    const productId = window.location.search.split("id=")[1];
+    const productName = document.querySelector(".product-title").innerText;
+    const productPrice = document.querySelector(".product_price").innerText;
+
+    return {
+      productId: productId,
+      name: productName,
+      price: productPrice,
+      quantity: 1,
+    };
+  }
+
+  function addToCart(productId, productName, productPrice) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || {};
+    const productIdLowerCase = productId.toLowerCase();
+
+    if (cart[productIdLowerCase]) {
+      cart[productIdLowerCase].quantity += 1;
+    } else {
+      cart[productIdLowerCase] = {
+        name: productName,
+        price: productPrice,
+        quantity: 1,
+      };
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    showNotification(productName);
+  }
+
+  function showNotification(productName) {
+    FuiToast.success(`Đã thêm ${productName} vào giỏ hàng!`);
+  }
+});
