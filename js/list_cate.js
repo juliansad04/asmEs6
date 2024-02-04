@@ -33,14 +33,17 @@ function updateCateList() {
             if (snapshot.exists()) {
                 const categories = snapshot.val();
 
+                // Check if categories is an object, then convert it to an array of objects
+                const categoriesArray = Array.isArray(categories) ? categories : Object.values(categories);
+
                 categoryList.innerHTML = `
-        <option value="all">Tất cả danh mục</option>
-        ${categories
+            <option value="all">Tất cả danh mục</option>
+            ${categoriesArray
                     .map((category) => {
                         return `<option value="${category.name}">${category.name}</option>`;
                     })
                     .join("")}
-      `;
+          `;
             } else {
                 console.log("No data available");
             }
@@ -51,3 +54,4 @@ function updateCateList() {
 }
 
 updateCateList();
+
