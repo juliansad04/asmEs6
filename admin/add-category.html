@@ -202,19 +202,16 @@
                             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
                         </div>
                         <div class="card-body">
-                            <!-- Form for adding a new product -->
-                            <form id="categoryForm">
+                            <!-- Form for adding a new category -->
+                            <form id="categoryForm" onsubmit="addCategory(event)">
                                 <div class="form-group">
                                     <label for="categoryName">Category Name</label>
-                                    <input type="text" class="form-control" id="categoryName" name="categoryName"
-                                        required>
+                                    <input type="text" class="form-control" id="categoryName" name="categoryName" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Add Category</button>
                             </form>
-
                         </div>
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
 
@@ -303,7 +300,7 @@
             }
         }
     </script>
-
+    <script type="module" src="./js/add-category.js"></script>
 </body>
 
 </html>
