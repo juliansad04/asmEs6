@@ -29,16 +29,19 @@ const categoryList = document.querySelector(".list__cate");
 function listCategory() {
   categoryList.innerHTML = "";
   get(child(dbRef, "category"))
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        const categories = snapshot.val();
-        console.log(categories);
-        categories.forEach((category) => {
-          const row = document.createElement("tr");
-          row.classList.add("list__cate-tr");
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const categories = snapshot.val();
+          console.log(categories);
 
-          row.innerHTML = `
-            <td>${category.id}</td>
+          Object.keys(categories).forEach((categoryId) => {
+            const category = categories[categoryId];
+
+            const row = document.createElement("tr");
+            row.classList.add("list__cate-tr");
+
+            row.innerHTML = `
+            <td>${categoryId}</td>
             <td>${category.name}</td>
             <td>
               <button class="btn btn-warning btn-sm">
@@ -48,15 +51,15 @@ function listCategory() {
             </td>
           `;
 
-          categoryList.appendChild(row);
-        });
-      } else {
-        console.log("No data available");
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+            categoryList.appendChild(row);
+          });
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 }
 
 listCategory();
