@@ -174,3 +174,34 @@ function addToCart(productId, productName, productPrice) {
 function showNotification(productName) {
   FuiToast.success(`Đã thêm ${productName} vào giỏ hàng!`);
 }
+
+//catelist
+
+
+function updateCateList() {
+  const categoryList = document.getElementById("categorySelect");
+  categoryList.innerHTML = "";
+
+  get(child(dbRef, "category"))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const categories = snapshot.val();
+
+          categoryList.innerHTML = `
+        <option value="all">Tất cả danh mục</option>
+        ${categories
+              .map((category) => {
+                return `<option value="${category.name}">${category.name}</option>`;
+              })
+              .join("")}
+      `;
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+}
+
+updateCateList();
