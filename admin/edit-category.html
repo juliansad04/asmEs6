@@ -207,7 +207,7 @@
                                 <div class="form-group">
                                     <label for="categoryName">Category Name</label>
                                     <input type="text" class="form-control" id="categoryName" name="categoryName"
-                                        value="lorem ipsum" required>
+                                        required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Edit Category</button>
                             </form>
@@ -279,30 +279,7 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 
-    <script>
-        function previewImage() {
-            var input = document.getElementById('image');
-            var preview = document.getElementById('imagePreview');
-            var label = document.querySelector('.custom-file-label');
-
-            var file = input.files[0];
-            var reader = new FileReader();
-
-            reader.onloadend = function () {
-                preview.src = reader.result;
-                preview.style.display = 'block';
-                label.innerHTML = file.name;
-            }
-
-            if (file) {
-                reader.readAsDataURL(file);
-            } else {
-                preview.src = '';
-                preview.style.display = 'none';
-                label.innerHTML = 'Choose file';
-            }
-        }
-    </script>
+    <script type="module" src="./js/edit-cate.js"></script>
 
 </body>
 

@@ -29,37 +29,55 @@ const categoryList = document.querySelector(".list__cate");
 function listCategory() {
   categoryList.innerHTML = "";
   get(child(dbRef, "category"))
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          const categories = snapshot.val();
-          console.log(categories);
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        const categories = snapshot.val();
+        console.log(categories);
 
-          Object.keys(categories).forEach((categoryId) => {
-            const category = categories[categoryId];
+        Object.keys(categories).forEach((categoryId) => {
+          const category = categories[categoryId];
+          console.log(categoryId);
 
-            const row = document.createElement("tr");
-            row.classList.add("list__cate-tr");
+          const row = document.createElement("tr");
+          row.classList.add("list__cate-tr");
 
-            row.innerHTML = `
+          row.innerHTML = `
             <td>${categoryId}</td>
             <td>${category.name}</td>
             <td>
               <button class="btn btn-warning btn-sm">
-                <a href="edit-category.html" style="color: white; text-decoration: none;">Chỉnh sửa</a>
+                <a href="edit-category.html?id=${categoryId}" style="color: white; text-decoration: none;">Chỉnh sửa</a>
               </button>
-              <button class="btn btn-danger btn-sm" onclick="deleteRow()">Xóa</button>
+              <button class="btn btn-danger btn-sm" onclick='deleteCate("${categoryId}")'>Xóa</button>
             </td>
           `;
 
-            categoryList.appendChild(row);
-          });
-        } else {
-          console.log("No data available");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+          categoryList.appendChild(row);
+        });
+      } else {
+        console.log("No data available");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
 
 listCategory();
+
+window.deleteCate = function (categoryId) {
+  const isConfirmed = confirm("Bạn có chắc chắn muốn xóa danh mục này?");
+
+  if (isConfirmed) {
+    const productRef = child(dbRef, `category/${categoryId}`);
+
+    remove(productRef)
+      .then(() => {
+        console.log("Product deleted successfully!");
+        listCategory();
+      })
+      .catch((error) => {
+        console.error("Error deleting product:", error);
+      });
+  }
+};
